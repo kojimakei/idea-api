@@ -11,4 +11,9 @@ class Api::V1::IdeasController < ApplicationController
       render status: 422, json: { status: 422 }
     end    
   end
+
+  private
+  def idea_params
+    params.require(:idea_form).permit(:category_name, :body)
+  end
 end
